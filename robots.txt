@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://fooocusai/sitemap.xml
+Sitemap: https://www.fooocusai.online/sitemap.xml
