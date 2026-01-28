@@ -1,0 +1,32 @@
+name: Empty Commit on Main
+
+on:
+  push:
+    branches:
+      - main
+      - captcahadd
+      - blog
+
+# Grant write permissions to the GITHUB_TOKEN
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  empty-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Get last commit message
+        id: get_message
+        run: echo "message=$(git log -1 --pretty=%B)" >> $GITHUB_OUTPUT
+
+      - name: Create empty commit
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git commit --allow-empty -m "deploy: ${{ steps.get_message.outputs.message }}"
+          git push
