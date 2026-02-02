@@ -400,6 +400,13 @@ nav .btn {
   border: 1px solid var(--border);
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+}
+
+.locked-playground-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
 
 .locked-playground::before {
@@ -456,6 +463,26 @@ nav .btn {
   50% {
     transform: translateY(-10px);
   }
+}
+
+.upload-img{
+  font-size:2rem;
+  margin-bottom: 2rem;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+}
+
+@media (max-width: 600px) {
+  .upload-img {
+    margin-bottom:1.5rem;
+  }
+}
+
+.upload-text {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* =========================================
